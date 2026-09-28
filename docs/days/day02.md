@@ -41,6 +41,11 @@ nothing to commit (create/copy files and use "git add" to track)
 
 用 `ls -a` 可以看到多出来的隐藏目录 `.git`。
 
+## 常见报错
+
+- `fatal: not a git repository (or any of the parent directories): .git`：当前目录不是仓库。要么还没执行 `git init`，要么终端在仓库外面的目录。用 `pwd` 确认位置，或者 `cd` 回仓库再执行。
+- `Reinitialized existing Git repository in ...`：在这个目录里重复执行了 `git init`。没坏处，Git 不会清空已有历史，但正常情况下不需要重复初始化。
+
 ## 今日练习
 
 1. 新建 `my-git-practice` 目录。

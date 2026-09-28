@@ -56,6 +56,12 @@ Changes to be committed:
 
 这一步的变化，就是“已修改”和“已暂存”的区别。
 
+## 常见报错
+
+- `fatal: pathspec 'readme.md' did not match any files`：`git add` 后面的文件名跟实际文件对不上。Linux 和 macOS 区分大小写，`README.md` 和 `readme.md` 是两个文件。用 `ls` 看准文件名，或者直接敲 `git add` 再按 Tab 补全。
+- `fatal: not a git repository (or any of the parent directories): .git`：当前目录不是仓库，回到 `git init` 过的目录里再执行。
+- 同一个文件同时出现在 `Changes to be committed` 和 `Changes not staged for commit` 里：你在 `git add` 之后又改了这个文件。Git 暂存的是 `add` 那一刻的内容，后面的改动还在工作区。想要把最新的改动也提交，再执行一次 `git add`。
+
 ## 今日练习
 
 1. 新建 `README.md`。

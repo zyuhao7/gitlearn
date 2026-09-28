@@ -47,12 +47,18 @@ $ git commit -m "add readme"
 
 `1a2b3c4` 是这次提交的编号前缀，每次提交都不一样。第一次提交会带 `root-commit` 字样，表示这是仓库的第一个提交。较老版本的 Git 或老仓库里，方括号中可能显示 `master` 而不是 `main`，那是默认分支名的差异，不影响提交本身。
 
-如果 Git 提示 `Please tell me who you are`，说明还没配置身份，先执行：
+## 常见报错
 
-```bash
-git config --global user.name "你的名字"
-git config --global user.email "你的邮箱"
-```
+- `*** Please tell me who you are.`：还没配置提交身份。先执行一次：
+
+  ```bash
+  git config --global user.name "你的名字"
+  git config --global user.email "你的邮箱"
+  ```
+
+  配置好之后再执行原来的 `git commit`，这次提交并没有成功，不需要重复 `git add`。
+- `nothing added to commit but untracked files present`：暂存区是空的，改动还没 `git add`。先暂存再提交。
+- `nothing to commit, working tree clean`：工作区和暂存区都没有改动，没有东西可提交。确认文件是不是真的保存了。
 
 ## 今日练习
 

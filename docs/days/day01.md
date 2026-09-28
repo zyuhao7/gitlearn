@@ -47,6 +47,11 @@ usage: git [-v | --version] [-h | --help] [-C <path>] ...
 
 想查某个具体命令的用法，可以执行 `git help commit` 这样的命令。
 
+## 常见报错
+
+- `git: command not found`：命令行找不到 Git。多半是没装好，或者装了但没加入 PATH。装好后新开一个终端再执行 `git --version`。
+- 执行 `git help commit` 时跳出的是手册页或浏览器文档，而不是终端里的一段文字：这是正常的，Git 把详细说明放在 man 手册或 HTML 页面里。直接查参数也可以执行 `git commit --help`。
+
 ## 今日练习
 
 1. 安装 Git。

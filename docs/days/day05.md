@@ -49,6 +49,12 @@ $ git log --oneline
 5d6e7f8 init project
 ```
 
+## 常见报错
+
+- `fatal: your current branch 'main' does not have any commits yet`：仓库里还没有任何提交，`git log` 没有东西可显示。先完成一次 `git commit`。
+- `git log` 输出后画面停住退不出来：`git log` 默认调用分页器，按 `q` 退出，按空格翻页，按上下方向键逐行滚动。
+- 提示 `command not found: less`：分页器缺失或被 `PAGER` 环境变量改坏了。用 `git --no-pager log --oneline` 直接打印，不加分页。
+
 ## 今日练习
 
 1. 修改 `README.md`。
