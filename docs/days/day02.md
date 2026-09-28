@@ -17,6 +17,30 @@ git init
 git status
 ```
 
+## 你应该看到
+
+`git init` 成功后会在当前目录生成 `.git`，并打印仓库位置：
+
+```text
+$ mkdir my-git-practice
+$ cd my-git-practice
+$ git init
+Initialized empty Git repository in /home/you/my-git-practice/.git/
+```
+
+接着执行 `git status`，会看到这是一个还没有任何提交的新仓库：
+
+```text
+$ git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+用 `ls -a` 可以看到多出来的隐藏目录 `.git`。
+
 ## 今日练习
 
 1. 新建 `my-git-practice` 目录。

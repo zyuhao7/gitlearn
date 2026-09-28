@@ -15,6 +15,24 @@ git switch main
 git merge feature/notes
 ```
 
+## 你应该看到
+
+如果 `main` 上没有新提交，合并会显示 `Fast-forward`，也就是直接把分支往前推：
+
+```text
+$ git switch main
+Switched to branch 'main'
+
+$ git merge feature/notes
+Updating 1a2b3c4..5d6e7f8
+Fast-forward
+ notes/branch.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 notes/branch.md
+```
+
+如果 `main` 自己也有新提交，Git 会额外生成一个合并提交，提示类似 `Merge made by the 'ort' strategy.`。两种情况下合并完成后，`git log --oneline` 里都能看到 `feature/notes` 上的提交。
+
 ## 今日练习
 
 1. 在 `feature/notes` 分支提交一个文件。

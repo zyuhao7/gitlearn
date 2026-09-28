@@ -353,6 +353,27 @@ git push --force-with-lease origin feature/demo
 
 不要随便对多人共享的 `main` 使用强制推送。
 
+## 你应该看到
+
+`git rebase -i HEAD~3` 打开后是这样一份待办清单：
+
+```text
+pick a1b2c3d docs: add day 24 outline
+pick b2c3d4e fix typo
+pick c3d4e5f add missing example
+```
+
+把后两行改成 `fixup` 保存，三次提交合并成一次，观察 `git log --oneline`：
+
+```text
+$ git log --oneline -3
+7d4e2f1 docs: add day 24 outline
+9c1b8a0 docs: deepen rebase guide
+4f6a2c3 init docs
+```
+
+原来的三个 commit id 全都不见了，说明历史确实被重写。如果结果不满意，可以用 `git reflog` 或整理前建的 `backup/before-cleanup` 分支回去。
+
 ## 今日练习
 
 1. 创建一个练习分支：

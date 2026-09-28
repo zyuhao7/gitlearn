@@ -30,6 +30,19 @@ git commit -m "docs: add git branch guide"
 git commit -m "fix: correct login validation"
 ```
 
+## 你应该看到
+
+按 `type: description` 格式写提交信息后，`git log --oneline` 看起来整齐很多：
+
+```text
+$ git log --oneline
+c3d4e5f docs: add git branch guide
+b2c3d4e feat: add example file
+a1b2c3d init project
+```
+
+一眼就能看出哪次改了文档、哪次加了功能。
+
 ## 今日练习
 
 1. 修改文档并使用 `docs:` 提交。

@@ -138,6 +138,34 @@ git reset --soft HEAD~1
 git diff HEAD~1
 ```
 
+## 你应该看到
+
+`git log --oneline --decorate -3` 会把 `HEAD` 指向哪里直接标在提交后面：
+
+```text
+$ git log --oneline --decorate -3
+abc1235 (HEAD -> main, origin/main) update readme
+def4567 add notes
+789abcd init project
+```
+
+进入 detached HEAD 时，Git 会先给一段警告，最后一行告诉你现在停在哪：
+
+```text
+$ git switch --detach def4567
+Note: switching to 'def4567'.
+
+You are in 'detached HEAD' state. ...
+HEAD is now at def4567 add notes
+```
+
+这时 `git status` 显示 `HEAD detached at def4567`，而不是某个分支名。切回分支后一切恢复正常：
+
+```text
+$ git switch main
+Switched to branch 'main'
+```
+
 ## 今日练习
 
 1. 执行：

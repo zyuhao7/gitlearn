@@ -17,6 +17,30 @@ git push
 
 `-u` 会建立本地分支和远程分支的默认关联，之后可以直接执行 `git push`。
 
+## 你应该看到
+
+第一次推送会看到对象计数，末尾提示新分支已创建、并建立了跟踪关系：
+
+```text
+$ git push -u origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 300 bytes | 300.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/your-name/your-repo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+```
+
+建立跟踪后，再执行 `git push` 输出会短得多。如果本地没有新提交，会提示：
+
+```text
+$ git push
+Everything up-to-date
+```
+
+如果输出里出现 `! [rejected] main -> main (fetch first)`，说明远程有本地没有的提交，先执行 `git pull` 再推送。
+
 ## 今日练习
 
 1. 本地提交一次修改。

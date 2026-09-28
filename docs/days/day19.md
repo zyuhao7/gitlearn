@@ -245,6 +245,37 @@ git reset --hard <old-commit-id>
 | 想删除本地最后一次提交和改动 | `git reset --hard HEAD~1` |
 | 必须删除远端最新提交 | `git reset --hard` + `git push --force-with-lease` |
 
+## 你应该看到
+
+`revert` 之后历史里会多出一条新提交，提交信息默认是 `Revert "..."`：
+
+```text
+$ git log --oneline
+c3d4e5f Revert "add wrong file"
+b2c3d4e add wrong file
+a1b2c3d init project
+```
+
+`reset --hard HEAD~1` 则相反，错误的提交直接从历史里消失：
+
+```text
+$ git reset --hard HEAD~1
+HEAD is now at a1b2c3d init project
+
+$ git log --oneline
+a1b2c3d init project
+```
+
+如果 reset 之后发现退错了，`git reflog` 里还能看到刚才那一步：
+
+```text
+$ git reflog
+a1b2c3d HEAD@{0}: reset: moving to HEAD~1
+b2c3d4e HEAD@{1}: commit: add wrong file
+```
+
+拿到 `HEAD@{1}` 这一行的 commit id，再 `git reset --hard b2c3d4e` 就能回到回退前的样子。
+
 ## 今日练习
 
 1. 新增一个文件并提交，模拟错误提交。

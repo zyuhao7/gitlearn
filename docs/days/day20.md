@@ -137,6 +137,24 @@ git add <file>
 
 如果 `pop` 发生冲突，stash 通常不会自动删除。确认处理完后可以手动删除对应 stash。
 
+## 你应该看到
+
+`git stash` 之后工作区立刻变干净，`git stash list` 里多出一条记录：
+
+```text
+$ git stash push -m "practice stash"
+Saved working directory and index state On main: practice stash
+
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+$ git stash list
+stash@{0}: On main: practice stash
+```
+
+`git stash pop` 之后改动回到工作区，这条记录也从列表里消失。
+
 ## 今日练习
 
 1. 修改一个文件但不提交。

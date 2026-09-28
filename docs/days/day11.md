@@ -95,6 +95,40 @@ git merge --abort
 
 取消后，仓库会回到合并前的状态。
 
+## 你应该看到
+
+出现冲突时，合并命令会明确告诉你哪几个文件有冲突：
+
+```text
+$ git merge feature/conflict-demo
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+这时 `git status` 会把这些文件列在未合并列表里：
+
+```text
+$ git status
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   README.md
+```
+
+按步骤改完文件并 `git add README.md` 后，`git status` 里这个文件会变成 `Changes to be committed`。执行 `git commit` 完成合并提交：
+
+```text
+$ git commit
+[main 7c8d9e0] Merge branch 'feature/conflict-demo'
+```
+
+如果中途执行 `git merge --abort`，`git status` 会回到合并前的干净状态，冲突文件里的标记也随之消失。
+
 ## 今日练习
 
 1. 在两个分支分别修改 `README.md` 的同一行。

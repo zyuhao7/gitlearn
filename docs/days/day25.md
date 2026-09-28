@@ -138,6 +138,27 @@ git cherry-pick --skip
 - 只要一个修复：`cherry-pick`
 - 要整个功能分支：`merge`
 
+## 你应该看到
+
+`git cherry-pick <commit-id>` 成功后，Git 会像普通提交一样打印一条新提交记录：
+
+```text
+$ git cherry-pick 7c8d9e0
+[main 1f2e3d4] docs: add cherry-pick demo note
+ Date: Mon Sep 28 10:00:00 2026 +0800
+ 1 file changed, 1 insertion(+)
+```
+
+注意方括号里的提交编号 `1f2e3d4` 跟原来的 `7c8d9e0` 不一样，因为这是一次新提交。用日志确认时，能看到它接在当前分支后面：
+
+```text
+$ git log --oneline --graph --decorate -5
+* 1f2e3d4 (HEAD -> main) docs: add cherry-pick demo note
+* abc1234 (origin/main) update readme
+```
+
+如果出现冲突，Git 会停在 `cherry-pick` 过程中，`git status` 显示 `You are currently cherry-picking commit 7c8d9e0.`，解决冲突并 `git add` 后执行 `git cherry-pick --continue` 即可。
+
 ## 今日练习
 
 1. 创建一个分支：

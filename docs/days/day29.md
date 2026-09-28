@@ -176,6 +176,31 @@ git blame -L 1,40 README.md
 
 4. 找到原因后，用新提交修复，而不是直接猜着改。
 
+## 你应该看到
+
+`git blame -L 1,20 README.md` 会在每一行前面标出最后一次改它的提交：
+
+```text
+1a2b3c4d (张伟 2026-09-01 10:12:03 +0800  1) # Git Learn in 30 Days
+9f8e7d6c (李娜 2026-09-05 15:40:22 +0800  2) 这是一个面向初学者的 Git 学习项目。
+```
+
+拿到 `9f8e7d6c` 之后，继续查这次提交到底改了什么：
+
+```text
+$ git show --stat 9f8e7d6c
+commit 9f8e7d6c...
+Author: 李娜 <lina@example.com>
+Date:   Sat Sep 5 15:40:22 2026 +0800
+
+    docs: rewrite readme overview
+
+ README.md | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+```
+
+先用 `blame` 定位到行，再用 `show` 看上下文，这是最常见的排查路径。
+
 ## 今日练习
 
 1. 对 `README.md` 执行：

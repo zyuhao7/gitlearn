@@ -143,6 +143,23 @@ PR 会自动更新，不需要重新创建。
 - 文档、测试或截图是否需要补充？
 - 本地是否已经运行过必要检查？
 
+## 你应该看到
+
+`git push -u origin feature/update-docs` 会在远端新建分支，并把本地分支跟它关联起来：
+
+```text
+$ git push -u origin feature/update-docs
+Enumerating objects: 5, done.
+...
+To github.com:user/my-git-practice.git
+ * [new branch]      feature/update-docs -> feature/update-docs
+branch 'feature/update-docs' set up to track 'origin/feature/update-docs'.
+```
+
+看到 `[new branch]` 和 `set up to track` 就说明推送成功。回到网页，仓库页面上会直接出现创建 Pull Request 的入口。
+
+之后按 review 意见继续修改时，只要再 `git add`、`git commit`、`git push`，PR 会自动更新，不需要重新创建。
+
 ## 今日练习
 
 1. 从最新 main 创建分支：

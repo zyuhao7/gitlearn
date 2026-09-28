@@ -116,6 +116,32 @@ git push origin :refs/tags/v0.1.0
 - 分支是路
 - 标签是路边的里程碑
 
+## 你应该看到
+
+`git tag` 列出本地所有标签，`git show v0.1.0` 显示它指向的那个提交：
+
+```text
+$ git tag
+v0.1.0
+
+$ git show v0.1.0
+commit 1a2b3c4...
+Author: 你的名字 <你的邮箱>
+Date:   Mon Sep 28 17:00:00 2026 +0800
+
+    add readme
+```
+
+推送标签时，远端会多出一个标签引用：
+
+```text
+$ git push origin v0.1.0
+To github.com:user/my-git-practice.git
+ * [new tag]         v0.1.0 -> v0.1.0
+```
+
+普通 `git push` 不会自动带上标签，所以标签要单独推送。
+
 ## 今日练习
 
 1. 用 `git log --oneline` 找到当前最新提交。

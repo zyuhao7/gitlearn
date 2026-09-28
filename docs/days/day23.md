@@ -302,6 +302,35 @@ git rebase origin/current-branch
 | PR 合并前整理零碎提交 | `rebase -i` |
 | 不确定会不会影响别人 | 优先不用 rebase |
 
+## 你应该看到
+
+`git rebase -i HEAD~2` 会打开编辑器，列出这次要处理的提交：
+
+```text
+pick a1b2c3d 修改按钮颜色
+pick b2c3d4e 修复按钮颜色写错
+
+# Rebase 90a1b2c..b2c3d4e onto 90a1b2c (2 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+```
+
+把第二行改成 `fixup` 并保存后，两条提交合并成一条，`git log --oneline` 里只剩一个。
+
+如果 rebase 过程中冲突，Git 会暂停在当前提交，并给出提示：
+
+```text
+CONFLICT (content): Merge conflict in README.md
+error: could not apply a1b2c3d... 修改按钮颜色
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+```
+
+照 `hint` 解决冲突后执行 `git rebase --continue`；不想继续就执行 `git rebase --abort` 回到 rebase 之前。
+
 ## 今日练习
 
 1. 从 `main` 创建一个分支：

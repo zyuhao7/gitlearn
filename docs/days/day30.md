@@ -27,6 +27,26 @@ git commit -m "docs: add final practice notes"
 git push -u origin feature/final-practice
 ```
 
+## 你应该看到
+
+推送新分支时，远端会提示这是一个新分支，并帮你建立跟踪关系：
+
+```text
+$ git push -u origin feature/final-practice
+To github.com:user/my-git-practice.git
+ * [new branch]      feature/final-practice -> feature/final-practice
+branch 'feature/final-practice' set up to track 'origin/feature/final-practice'.
+```
+
+在网页上创建 Pull Request 并合并回 `main` 之后，本地切回 main 再拉取，就能看到合并结果：
+
+```bash
+git switch main
+git pull
+```
+
+`git log --oneline` 里能看到你自己的提交已经进入 `main`，30 天练习到此闭环。
+
 ## 总结清单
 
 完成 30 天后，你应该掌握：

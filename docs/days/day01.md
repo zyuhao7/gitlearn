@@ -29,6 +29,24 @@ git --version
 git help
 ```
 
+## 你应该看到
+
+`git --version` 会打印本机安装的 Git 版本，版本号因人而异：
+
+```text
+$ git --version
+git version 2.43.0
+```
+
+`git help` 不带参数时会列出常用命令和用法：
+
+```text
+$ git help
+usage: git [-v | --version] [-h | --help] [-C <path>] ...
+```
+
+想查某个具体命令的用法，可以执行 `git help commit` 这样的命令。
+
 ## 今日练习
 
 1. 安装 Git。

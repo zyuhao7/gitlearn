@@ -145,6 +145,22 @@ git merge main
 | 合并方式 | PR review 后合并 |
 | 敏感文件 | 进入 `.gitignore`，不能提交 |
 
+## 你应该看到
+
+提交前 `git status` 应该只列出你这次确实要提交的文件：
+
+```text
+$ git status
+On branch feature/user-login
+Changes to be committed:
+        modified:   docs/days/day28.md
+
+Untracked files:
+        local-notes.md
+```
+
+`local-notes.md` 出现在未跟踪列表里，说明它没被 `git add`，也就不会进入这次提交。这就是“不要无脑 `git add .`”想达到的效果。
+
 ## 今日练习
 
 1. 从 main 创建一个符合规范的分支：

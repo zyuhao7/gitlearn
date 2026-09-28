@@ -40,6 +40,27 @@ git checkout -b feature/readme
 - 新项目和新教程优先用 `git switch`
 - 看旧文章或旧项目脚本时，看到 `checkout` 知道它可能是在切换分支
 
+## 你应该看到
+
+切换成功后，Git 会念出当前分支名：
+
+```text
+$ git switch main
+Switched to branch 'main'
+
+$ git switch -c feature/readme
+Switched to a new branch 'feature/readme'
+```
+
+老写法 `git checkout` 的输出是一样的：
+
+```text
+$ git checkout main
+Switched to branch 'main'
+```
+
+练习里第 3 步最能说明问题：在 `feature/notes` 上新建的文件，切回 `main` 后执行 `ls` 会看不到它，再切回 `feature/notes` 又会出现。文件没有丢，只是不同分支对应不同的文件状态。
+
 ## 今日练习
 
 1. 在 `feature/notes` 分支创建一个文件并提交。
